@@ -63,6 +63,11 @@ export interface UserAuthOperations {
  */
 export interface User {
   id: number;
+  isAdmin?: boolean | null;
+  isSuperAdmin?: boolean | null;
+  isActive?: boolean | null;
+  fullName?: string | null;
+  roles?: ('admin' | 'superAdmin' | 'user' | 'editor')[] | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -155,6 +160,11 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  isAdmin?: T;
+  isSuperAdmin?: T;
+  isActive?: T;
+  fullName?: T;
+  roles?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
